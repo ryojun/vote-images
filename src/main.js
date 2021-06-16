@@ -8,6 +8,5 @@ import './assets/styles.css'
 import * as jquery from 'jquery'
 
 
-
 createApp(App).use(store).use(router).mount('#app')
 Vue.prototype.jquery = jquery;
