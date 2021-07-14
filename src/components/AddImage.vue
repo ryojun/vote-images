@@ -9,24 +9,40 @@
               <div class="col-md-3"></div>
               <h1>Upload ไฟล์ภาพ</h1>
               <div class="row">
-                <p class="card-text">ชื่อไฟล์ภาพ :</p>
-                <Field name="ImageName" :rules="isRequired" />
-                <ErrorMessage name="ImageName" />
-                <p class="card-text">Shortcode :</p>
-                <Field name="Shortcode" :rules="isRequired" />
-                <ErrorMessage name="Shortcode" />
+
                 <p class="card-text">Ig_account :</p>
-                <Field name="Ig_account" :rules="isRequired" />
+                <Field name="Ig_account"
+                v-model.trim="form.Ig_account"
+                :rules="isRequired" />
                 <ErrorMessage name="Ig_account" />
+
                 <p class="card-text">Image_rank :</p>
-                <Field name="Image_rank" :rules="isRequired" />
+                <select id="Image_rank " 
+                v-model.trim="form.Image_rank" 
+                name="Image_rank " 
+                :rules="isRequired">
+                  <option disabled value="">Please select one</option>
+                  <option>Best</option>
+                  <option>Worst</option>
+                </select>
                 <ErrorMessage name="Image_rank" />
+
                 <p class="card-text">Image_Like :</p>
-                <Field name="Image_Like" :rules="isRequired" />
+                <Field name="Image_Like"
+                v-model.trim="form.Image_Like"
+                :rules="isRequired" />
                 <ErrorMessage name="Image_Like" />
+
                 <p class="card-text">Image_File :</p>
-                <input type="file" id="myFile" name="filename">
-                <button type="button" class="btn btn-success">Submit</button>
+                <div class="form-group">
+                    <label class="btn btn-secondary btn-block">
+                        <i class="fa fa-upload"></i> อัพโหลดภาพ
+                        <input type="file" class="d-none" @change="onChangeFile($event.target)">
+                        <p>{{form.Image_Name}}</p>
+                    </label>
+                  
+                </div>
+                <button type="button" @click="onSubmit()" class="btn btn-success">Submit</button>
               </div>
           </Form>
         </div>
@@ -36,9 +52,21 @@
 
 <script>
 import { Field, Form, ErrorMessage } from 'vee-validate';
-
+import Axios from "axios";
 export default {
   name: 'AddImage',
+  data() {
+        return {
+            form: {
+                Image_Name: "",
+                Image_shortcode: "",
+                Ig_account: "",
+                Image_rank: "",
+                Image_Like: null
+            },
+            errorMessage: ""
+        };
+    },
   components: {
     Field,
     Form,
@@ -52,7 +80,44 @@ export default {
 
       return 'This is required';
     },
+    onTest() {
+      console.log(this.form)
+    },
+    onChangeFile(input) {
+      // console.log(input.files[0].name)
+      if (input.files && input.files.length > 0) {
+        const file = input.files[0];
+        this.form.Image_Name = file.name
+        if (file.type.indexOf("image/") >= 0) {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.addEventListener("load", () => {
+            // console.log(reader.result);
+            this.form.Image_shortcode = reader.result
+          });
+          return;
+        }
+      }
+    },
+    onSubmit() {
+      try{
+        Axios.post("api/imagesmanager/addimage",this.form).then(response => {console.log(response); this.onReset();}).catch(err => {console.log(err)});
+      }catch (ex) {
+        console.log(ex);
+      }
+    },
+    onReset() {
+      this.form = {
+        Image_Name: "",
+        Image_shortcode: "",
+        Ig_account: "",
+        Image_rank: "",
+        Image_Like: null
+      };
+    }
   },
+  
+  
 };
 </script>
 
