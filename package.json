@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --dest=../Published/www",
+    "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
@@ -15,7 +15,6 @@
     "jquery": "^3.6.0",
     "vee-validate": "^4.4.5",
     "vue": "^3.0.0",
-    "vue-axios": "^3.2.4",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
   },

@@ -1,72 +1,29 @@
 <template>
     <div class="Vote container">
-      <header class="mb-4">
-          <h1>เลือก VOTE รูปภาพที่ดีที่สุด</h1>
-      </header>
-      <Form action="">
-        <p>ชื่อผู้ทำแบบทดสอบ :</p>
-        <input v-model="username" placeholder="ระบุชื่อ">
-        <p>Name is: {{ username }}</p>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>รูป 1</th>
-                    <th>รูป 2</th>
-                </tr>
-            </thead>
-            <tbody v-if="seen1" id="hide">
-                <tr>
-                    <td v-for="item in foodsBest" :key="item.id_table">
-                        <div class="img-container">
-                            <img class="img" :alt="item.Vote_type" :src="`/api/uploads/${item.Image_shortcode}`">
-                            <div class="d-grid gap-2">
-                              <button type="button" @click="onVote()" class="btn btn-success">VOTE</button>
-                              {{addNewData(username,item.Image_Name)}}
-                            </div>
-                        </div>
-                    </td>
-                    <td v-for="item in foodsWorst" :key="item.id_table">
-                        <div class="img-container">
-                            <img class="img" :alt="item.Vote_type" :src="`/api/uploads/${item.Image_shortcode}`">
-                            <div class="d-grid gap-2">
-                              <button type="button" @click="onVote()" class="btn btn-success">VOTE</button>
-                              {{addNewData(username,item.Image_Name)}}
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-            <tbody v-if="seen2" id="hide">
-                <tr>
-                    <td v-for="item in foodsWorst" :key="item.id_table">
-                        <div class="img-container">
-                            <img class="img" :alt="item.Vote_type" :src="`/api/uploads/${item.Image_shortcode}`">
-                            <div class="d-grid gap-2">
-                              <button type="button" @click="onVote()" class="btn btn-success">VOTE</button>
-                              {{addNewData(username,item.Image_Name)}}
-                            </div>
-                        </div>
-                    </td>
-                    <td v-for="item in foodsBest" :key="item.id_table">
-                        <div class="img-container">
-                            <img class="img" :alt="item.Vote_type" :src="`/api/uploads/${item.Image_shortcode}`">
-                            <div class="d-grid gap-2">
-                              <button type="button" @click="onVote()" class="btn btn-success">VOTE</button>
-                              {{addNewData(username,item.Image_Name)}}
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-      </Form>
+        <form action="">
+            <div class="col-md-3"></div>
+            <h1>เลือก VOTE รูปภาพที่ดีที่สุด</h1>
+            <div class="row">
+                <div class="col">
+                    <img src="../assets/BestForTest.jpg" alt="Logo" class="img-logo">
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-success">VOTE</button>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="../assets/WorstForTest.jpg" alt="Logo" class="img-logo">
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-success">VOTE</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </template>
 
 <script>
-import Axios from "axios";
-import { mapState } from 'vuex';
 export default {
+<<<<<<< HEAD
   computed :{
       ...mapState(['foodsBest','foodsWorst'])
   },
@@ -145,6 +102,9 @@ export default {
       }
     }
   },
+=======
+  name: 'VoteImage'
+>>>>>>> parent of 889a613... update add page and test upload
 }
 </script>
 
@@ -173,20 +133,5 @@ h1 {
 }
 .form-group {
     margin-bottom: 2%;
-}
-.img {
-    width: 500px;
-}
-.img-container{
-    width: 100%;
-    height: 100%;
-}
-.img-container img{
-    max-width: 100%;
-    max-height: 100%;
-}
-.btn {
-  margin-top: 2%;
-  margin-bottom: 2%;
 }
 </style>

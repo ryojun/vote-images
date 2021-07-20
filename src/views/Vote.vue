@@ -4,9 +4,12 @@
   </div>
 </template>
 <script>
-import VoteImage from '../components/VoteImage.vue'
+import VoteImage from '../components/VoteImage'
 export default {
   components: { VoteImage },
-  name: 'Vote'
+  name: 'Vote',
+  component: {
+      VoteImage
+  }
 }
 </script>

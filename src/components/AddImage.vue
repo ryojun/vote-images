@@ -9,23 +9,19 @@
               <div class="col-md-3"></div>
               <h1>Upload ไฟล์ภาพ</h1>
               <div class="row">
-
+                <p class="card-text">ชื่อไฟล์ภาพ :</p>
+                <Field name="ImageName" :rules="isRequired" />
+                <ErrorMessage name="ImageName" />
+                <p class="card-text">Shortcode :</p>
+                <Field name="Shortcode" :rules="isRequired" />
+                <ErrorMessage name="Shortcode" />
                 <p class="card-text">Ig_account :</p>
-                <Field name="Ig_account"
-                v-model.trim="form.Ig_account"
-                :rules="isRequired" />
+                <Field name="Ig_account" :rules="isRequired" />
                 <ErrorMessage name="Ig_account" />
-
                 <p class="card-text">Image_rank :</p>
-                <select id="Image_rank " 
-                v-model.trim="form.Image_rank" 
-                name="Image_rank " 
-                :rules="isRequired">
-                  <option disabled value="">Please select one</option>
-                  <option>Best</option>
-                  <option>Worst</option>
-                </select>
+                <Field name="Image_rank" :rules="isRequired" />
                 <ErrorMessage name="Image_rank" />
+<<<<<<< HEAD
 
 
                 <p class="card-text">Image_File :</p>
@@ -38,6 +34,14 @@
 
                 </div>
                 <button type="button" @click="onSubmit()" class="btn btn-success">Submit</button>
+=======
+                <p class="card-text">Image_Like :</p>
+                <Field name="Image_Like" :rules="isRequired" />
+                <ErrorMessage name="Image_Like" />
+                <p class="card-text">Image_File :</p>
+                <input type="file" id="myFile" name="filename">
+                <button type="button" class="btn btn-success">Submit</button>
+>>>>>>> parent of 889a613... update add page and test upload
               </div>
           </Form>
         </div>
@@ -47,9 +51,10 @@
 
 <script>
 import { Field, Form, ErrorMessage } from 'vee-validate';
-import Axios from "axios";
+
 export default {
   name: 'AddImage',
+<<<<<<< HEAD
   data() {
         return {
             form: {
@@ -61,6 +66,8 @@ export default {
             errorMessage: ""
         };
     },
+=======
+>>>>>>> parent of 889a613... update add page and test upload
   components: {
     Field,
     Form,
@@ -74,6 +81,7 @@ export default {
 
       return 'This is required';
     },
+<<<<<<< HEAD
     onTest() {
       console.log(this.form)
     },
@@ -108,9 +116,9 @@ export default {
         Image_rank: ""
       };
     }
+=======
+>>>>>>> parent of 889a613... update add page and test upload
   },
-  
-  
 };
 </script>
 
