@@ -24,6 +24,7 @@
 <script>
 export default {
 <<<<<<< HEAD
+<<<<<<< HEAD
   computed :{
       ...mapState(['foodsBest','foodsWorst'])
   },
@@ -102,6 +103,9 @@ export default {
       }
     }
   },
+=======
+  name: 'VoteImage'
+>>>>>>> parent of 889a613... update add page and test upload
 =======
   name: 'VoteImage'
 >>>>>>> parent of 889a613... update add page and test upload
