@@ -23,6 +23,7 @@
                 <ErrorMessage name="Image_rank" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
                 <p class="card-text">Image_File :</p>
@@ -35,6 +36,14 @@
 
                 </div>
                 <button type="button" @click="onSubmit()" class="btn btn-success">Submit</button>
+=======
+                <p class="card-text">Image_Like :</p>
+                <Field name="Image_Like" :rules="isRequired" />
+                <ErrorMessage name="Image_Like" />
+                <p class="card-text">Image_File :</p>
+                <input type="file" id="myFile" name="filename">
+                <button type="button" class="btn btn-success">Submit</button>
+>>>>>>> parent of 889a613... update add page and test upload
 =======
                 <p class="card-text">Image_Like :</p>
                 <Field name="Image_Like" :rules="isRequired" />
@@ -65,6 +74,7 @@ export default {
   name: 'AddImage',
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   data() {
         return {
             form: {
@@ -76,6 +86,8 @@ export default {
             errorMessage: ""
         };
     },
+=======
+>>>>>>> parent of 889a613... update add page and test upload
 =======
 >>>>>>> parent of 889a613... update add page and test upload
 =======
@@ -93,6 +105,7 @@ export default {
 
       return 'This is required';
     },
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     onTest() {
@@ -129,6 +142,8 @@ export default {
         Image_rank: ""
       };
     }
+=======
+>>>>>>> parent of 889a613... update add page and test upload
 =======
 >>>>>>> parent of 889a613... update add page and test upload
 =======
