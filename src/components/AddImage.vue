@@ -27,11 +27,6 @@
                 </select>
                 <ErrorMessage name="Image_rank" />
 
-                <p class="card-text">Image_Like :</p>
-                <Field name="Image_Like"
-                v-model.trim="form.Image_Like"
-                :rules="isRequired" />
-                <ErrorMessage name="Image_Like" />
 
                 <p class="card-text">Image_File :</p>
                 <div class="form-group">
@@ -40,7 +35,7 @@
                         <input type="file" class="d-none" @change="onChangeFile($event.target)">
                         <p>{{form.Image_Name}}</p>
                     </label>
-                  
+
                 </div>
                 <button type="button" @click="onSubmit()" class="btn btn-success">Submit</button>
               </div>
@@ -61,8 +56,7 @@ export default {
                 Image_Name: "",
                 Image_shortcode: "",
                 Ig_account: "",
-                Image_rank: "",
-                Image_Like: null
+                Image_rank: ""
             },
             errorMessage: ""
         };
@@ -110,9 +104,8 @@ export default {
       this.form = {
         Image_Name: "",
         Image_shortcode: "",
-        Ig_account: "",
-        Image_rank: "",
-        Image_Like: null
+        Ig_account: this.form.Ig_account,
+        Image_rank: ""
       };
     }
   },

@@ -122,12 +122,12 @@ export default {
       this.page += 1
       this.$store.dispatch('set_foodsBest', this.page);
       this.$store.dispatch('set_foodsWorst', this.page);
-      this.seenRandom()
+      setTimeout(this.seenRandom(),2000)
       this.user_nameList = [];
       this.Image_nameList = [];
     },
     addNewData(username,Image_Name) {
-      this.user_nameList.push((username || "User"))
+      this.user_nameList.push((username || Date.now()))
       this.Image_nameList.push(Image_Name)
     },
     onRandom(min,max) {
